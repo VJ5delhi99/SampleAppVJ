@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -33,5 +33,29 @@ namespace SampleAppVJ
                 } 
             }
         }
+
+        protected void btnTestConnection1_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            { 
+                lblStatus.Text = ConfigurationHelper.GetSessionStateSqlConnectionString();
+            }
+        }
+
+    }
+}
+
+public class ConfigurationHelper
+{
+    public static string GetSessionStateSqlConnectionString()
+    {
+        // Load the web.config file
+        var configFile = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/web.config");
+
+        // Get the sessionState section
+        var sessionStateSection = (System.Web.Configuration.SessionStateSection)configFile.GetSection("system.web/sessionState");
+
+        // Return the sqlConnectionString attribute value
+        return sessionStateSection?.SqlConnectionString;
     }
 }
