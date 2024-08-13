@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SampleAppVJ._Default" %>
+<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SampleAppVJ._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -42,6 +42,10 @@
          <asp:Button ID="btnTestConnection" runat="server" Text="Test" CssClass="btn btn-primary"
              OnClick="btnTestConnection_Click" />
      </div>
+        <div class="form-group">
+    <asp:Button ID="btnTestConnection1" runat="server" Text="Test Session State Connection" CssClass="btn btn-primary"
+        OnClick="btnTestConnection1_Click" />
+</div>
      <div class="form-group">
          <asp:Label ID="lblStatus" runat="server" Text="" CssClass="text-center text-success"></asp:Label>
      </div>
